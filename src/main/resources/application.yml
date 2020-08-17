@@ -1,0 +1,12 @@
+integrations:
+  treeData:
+    url: https://data.cityofnewyork.us/resource/uvpi-gqnh.json
+    searchLimit: 1000
+
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+logging:
+  level:
+    com.holidu.interview.assignment: DEBUG
