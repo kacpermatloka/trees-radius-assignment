@@ -30,7 +30,7 @@ If you happen to have any questions, please send an email to your HR contact at 
 Good luck and happy coding!
 
 
-#Solution
+# Solution
 Run App.java as Java Application
 
 Application is running on http://localhost:8080. You can use the following sample request:
