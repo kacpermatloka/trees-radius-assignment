@@ -6,6 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Runnable task to fetch and collect responses for subframes for concurrent execution.
+ */
 @Slf4j
 public class FetchTreesInFrameTask implements Runnable {
 

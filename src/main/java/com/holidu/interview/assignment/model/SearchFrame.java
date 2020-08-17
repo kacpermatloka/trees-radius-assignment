@@ -4,6 +4,10 @@ import lombok.Getter;
 
 import static com.holidu.interview.assignment.utils.MathUtils.convertToFeet;
 
+/**
+ * Class holds a frame (rectangle) points based on provided circle which is inscribed within the frame. This is bounding
+ * the area where the trees are fetch from.
+ */
 @Getter
 public class SearchFrame {
 
@@ -32,6 +36,11 @@ public class SearchFrame {
         this.maxY = maxY;
     }
 
+    /**
+     * «
+     * Generates subframe with offset from minX. Smaller subframe if a frame of dimensions
+     * FRAME_THRESHOLD_X x original frameSize.
+     */
     public SearchFrame subFrameByX(int offset, int subframesCount) {
         double delta = FRAME_THRESHOLD_X * offset;
         double newMinX = getMinX() + delta;
@@ -41,10 +50,16 @@ public class SearchFrame {
         return new SearchFrame(newMinX, newMaxX, minY, maxY);
     }
 
+    /**
+     * Checks whether frame is too large to process at once.
+     */
     public boolean isTooLarge() {
         return maxX - minX > FRAME_THRESHOLD_X;
     }
 
+    /**
+     * Returns no. of subframes required to fetch whole original frame, based on FRAME_THRESHOLD_X.
+     */
     public int getRequiredSubframesCount() {
         return (int) Math.ceil((maxX - minX) / FRAME_THRESHOLD_X);
     }

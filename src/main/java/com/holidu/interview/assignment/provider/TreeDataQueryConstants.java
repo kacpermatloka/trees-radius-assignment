@@ -1,5 +1,8 @@
 package com.holidu.interview.assignment.provider;
 
+/**
+ * 3rd party API constants (field names, query keywords etc.)
+ */
 public class TreeDataQueryConstants {
     public static final String SELECT = "$select";
     public static final String WHERE = "$where";

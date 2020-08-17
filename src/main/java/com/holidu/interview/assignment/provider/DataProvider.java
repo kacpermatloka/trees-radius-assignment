@@ -9,6 +9,9 @@ import java.util.Optional;
  */
 public interface DataProvider {
 
+    /**
+     * Returns all trees located withing frame in format of JSON response.
+     */
     Optional<String> fetchTrees(SearchFrame frame);
 
 }

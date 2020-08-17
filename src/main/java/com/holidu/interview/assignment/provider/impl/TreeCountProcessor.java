@@ -18,6 +18,11 @@ import static com.holidu.interview.assignment.provider.TreeDataQueryConstants.X_
 import static com.holidu.interview.assignment.provider.TreeDataQueryConstants.Y_SP;
 import static com.holidu.interview.assignment.utils.MathUtils.isWithinCircle;
 
+/**
+ * JSON processing class that collects trees occurrences withing circle from list of json responses. Due to possible size of
+ * responses it uses JSON Streaming API in order to improve performance of processing, avoiding loading data-binding approach
+ * and preventing loading whole response into memory.
+ */
 @Component
 @Slf4j
 public class TreeCountProcessor {

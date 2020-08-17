@@ -74,7 +74,7 @@ public class TreeServiceImpl implements TreeService {
     private void shutdown(ExecutorService executorService) {
         executorService.shutdown();
         try {
-            if (!executorService.awaitTermination(30, TimeUnit.SECONDS)) {
+            if (!executorService.awaitTermination(60, TimeUnit.SECONDS)) {
                 executorService.shutdownNow();
             }
         } catch (InterruptedException ex) {
