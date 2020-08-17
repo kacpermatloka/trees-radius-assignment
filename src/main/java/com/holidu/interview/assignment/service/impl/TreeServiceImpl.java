@@ -28,11 +28,11 @@ import static java.util.stream.Collectors.toMap;
 @Slf4j
 public class TreeServiceImpl implements TreeService {
 
-    private final DataProvider dataProvider;
+    private final DataProvider treeDataProvider;
     private final TreeCountProcessor treeCountProcessor;
 
-    public TreeServiceImpl(TreeCountProcessor treeCountProcessor, DataProvider dataProvider) {
-        this.dataProvider = dataProvider;
+    public TreeServiceImpl(TreeCountProcessor treeCountProcessor, DataProvider treeDataProvider) {
+        this.treeDataProvider = treeDataProvider;
         this.treeCountProcessor = treeCountProcessor;
     }
 
@@ -55,19 +55,23 @@ public class TreeServiceImpl implements TreeService {
     private void doConcurrentFetch(SearchFrame originalFrame, List<String> responses) {
         int subframesCount = originalFrame.getRequiredSubframesCount();
 
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        ExecutorService executorService = start();
         for (int i = 0; i < subframesCount; i++) {
             SearchFrame subframe = originalFrame.subFrameByX(i, subframesCount - 1);
-            executorService.execute(new FetchTreesInFrameTask(dataProvider, subframe, responses));
+            executorService.execute(new FetchTreesInFrameTask(treeDataProvider, subframe, responses));
         }
-        shutdownExecutorService(executorService);
+        shutdown(executorService);
     }
 
     private void doFetch(SearchFrame originalFrame, List<String> responses) {
-        dataProvider.fetchTrees(originalFrame).ifPresent(responses::add);
+        treeDataProvider.fetchTrees(originalFrame).ifPresent(responses::add);
     }
 
-    private void shutdownExecutorService(ExecutorService executorService) {
+    private ExecutorService start() {
+        return Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+    }
+
+    private void shutdown(ExecutorService executorService) {
         executorService.shutdown();
         try {
             if (!executorService.awaitTermination(30, TimeUnit.SECONDS)) {

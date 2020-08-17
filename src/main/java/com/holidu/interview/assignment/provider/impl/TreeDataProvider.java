@@ -23,7 +23,7 @@ import static com.holidu.interview.assignment.provider.TreeDataQueryConstants.Y_
 
 @Component
 @Slf4j
-public class TreesDataProvider implements DataProvider {
+public class TreeDataProvider implements DataProvider {
 
     private final RestTemplate restTemplate;
 
@@ -33,7 +33,7 @@ public class TreesDataProvider implements DataProvider {
     @Value("${integrations.treeData.searchLimit}")
     private int searchLimit;
 
-    public TreesDataProvider(RestTemplate restTemplate) {
+    public TreeDataProvider(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
