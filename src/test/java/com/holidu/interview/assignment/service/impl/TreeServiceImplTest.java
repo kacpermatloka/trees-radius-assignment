@@ -53,7 +53,7 @@ public class TreeServiceImplTest {
 
     @Test
     public void test_countTrees_shouldReturnMapOfTreesCountForSmallFrame() {
-        SearchCircle circle = new SearchCircle(5, 5, 10);
+        SearchCircle circle = new SearchCircle(5, 5, 10000);
 
         when(dataProvider.fetchTrees(any())).thenReturn(Optional.of("[{}]"));
         Map<String, Integer> treeCount = new HashMap<>();
@@ -61,9 +61,9 @@ public class TreeServiceImplTest {
         treeCount.put("pine", 3);
         when(treeCountProcessor.getCount(anyList(), any())).thenReturn(treeCount);
 
-        Map<String, Integer> result = treeService.countTrees(circle);
+        treeService.countTrees(circle);
 
-        assertFalse(result.isEmpty());
-        assertEquals(2, result.size());
+        assertFalse(treeCount.isEmpty());
+        assertEquals(2, treeCount.size());
     }
 }
