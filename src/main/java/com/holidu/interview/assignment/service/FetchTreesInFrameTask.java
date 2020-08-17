@@ -1,6 +1,7 @@
-package com.holidu.interview.assignment.provider;
+package com.holidu.interview.assignment.service;
 
 import com.holidu.interview.assignment.model.SearchFrame;
+import com.holidu.interview.assignment.provider.DataProvider;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;

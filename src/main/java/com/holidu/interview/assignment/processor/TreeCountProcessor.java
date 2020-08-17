@@ -1,4 +1,4 @@
-package com.holidu.interview.assignment.provider.impl;
+package com.holidu.interview.assignment.processor;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;

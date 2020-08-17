@@ -2,7 +2,7 @@ package com.holidu.interview.assignment.service.impl;
 
 import com.holidu.interview.assignment.model.SearchCircle;
 import com.holidu.interview.assignment.provider.DataProvider;
-import com.holidu.interview.assignment.provider.impl.TreeCountProcessor;
+import com.holidu.interview.assignment.processor.TreeCountProcessor;
 import org.junit.Before;
 import org.junit.Test;
 

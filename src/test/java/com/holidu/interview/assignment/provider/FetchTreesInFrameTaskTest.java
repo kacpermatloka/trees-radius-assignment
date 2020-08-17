@@ -2,6 +2,7 @@ package com.holidu.interview.assignment.provider;
 
 import com.holidu.interview.assignment.model.SearchCircle;
 import com.holidu.interview.assignment.model.SearchFrame;
+import com.holidu.interview.assignment.service.FetchTreesInFrameTask;
 import org.junit.Before;
 import org.junit.Test;
 
