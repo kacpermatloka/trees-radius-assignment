@@ -28,3 +28,18 @@ The service should use the data from the 3rd party API (https://data.cityofnewyo
 If you happen to have any questions, please send an email to your HR contact at Holidu.
 
 Good luck and happy coding!
+
+
+#Solution
+Run App.java as Java Application
+
+Application is running on http://localhost:8080. You can use the following sample request:
+```
+http://localhost:8080/trees?x=988000&y=200100&radius=300
+```
+
+Performance optimizations:
+- reduced searching area (SearchFrame class)
+- concurrent execution for circles with a radius > 1000 meters
+- JSON Streaming API to process responses without loading them all into memory
+- small optimization in check whether point is within circle
