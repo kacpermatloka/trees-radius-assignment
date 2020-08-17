@@ -43,3 +43,6 @@ Performance optimizations:
 - concurrent execution for circles with a radius > 1000 meters
 - JSON Streaming API to process responses without loading them all into memory
 - small optimization in check whether point is within circle
+
+Note:
+In order to get more precise data please increase searchLimit value which is set to 1000 (default by 3rd party API).
